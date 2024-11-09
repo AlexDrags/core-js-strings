@@ -19,8 +19,9 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  if (typeof value === 'string') return value.length;
+  return 0;
 }
 
 /**
@@ -37,8 +38,17 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (typeof value === 'string') return true;
+  if (typeof value === 'number' || typeof value === 'boolean') return false;
+  if (value === null || value === undefined) {
+    return false;
+  }
+  if (Array.isArray(value) === true || Boolean(value) === false) {
+    return false;
+  }
+  if (`${value}` === '[object Object]') return false;
+  return true;
 }
 
 /**
