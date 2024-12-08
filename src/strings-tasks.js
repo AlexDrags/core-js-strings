@@ -345,8 +345,14 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  let newStr = '';
+  for (let index = 0; index < str.split(' ').length; index += 1) {
+    const element = str.split(' ')[index];
+    newStr += `${[...element].reverse().join('')} `;
+    console.log(newStr);
+  }
+  return newStr.trim();
 }
 
 /**
@@ -360,8 +366,19 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let newStr = '';
+  for (let index = 0; index < str.split('').length; index += 1) {
+    const element = str[index];
+    if (element === ' ') {
+      newStr += ' ';
+    } else if (element === element.toLocaleUpperCase()) {
+      newStr += element.toLowerCase();
+    } else {
+      newStr += element.toUpperCase();
+    }
+  }
+  return newStr;
 }
 
 /**
@@ -377,8 +394,8 @@ function invertCase(/* str */) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -391,8 +408,8 @@ function getStringFromTemplate(/* firstName, lastName */) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  return value.slice(7, value.length - 1);
 }
 
 /**
