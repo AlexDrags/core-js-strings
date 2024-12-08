@@ -350,7 +350,6 @@ function reverseWords(str) {
   for (let index = 0; index < str.split(' ').length; index += 1) {
     const element = str.split(' ')[index];
     newStr += `${[...element].reverse().join('')} `;
-    console.log(newStr);
   }
   return newStr.trim();
 }
